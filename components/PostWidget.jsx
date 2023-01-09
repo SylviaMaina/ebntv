@@ -2,7 +2,7 @@ import moment from 'moment'
 import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 
-import {getRecentPosts, getSimilarPosts} from '../services'
+import {getRecentPosts, getSimilarPosts} from '../Services'
 
 const PostWidget = ({categories,slug}) => {
     const [relatedPosts, setRelatedPosts]=useState([])

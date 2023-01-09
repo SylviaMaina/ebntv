@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { PostCard, Categories, PostWidget } from "../components";
-import { getPosts } from "../services";
+import { PostCard, Categories, PostWidget } from "../components/Index";
+import { getPosts } from "../Services";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
