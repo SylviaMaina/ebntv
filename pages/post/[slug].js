@@ -1,5 +1,5 @@
 import React from "react";
-import { getPosts, getPostDetails } from "../../services";
+import { getPosts, getPostDetails } from "../../Services";
 import {
   PostDetail,
   Categories,
@@ -8,7 +8,7 @@ import {
   Comments,
   CommentsForm,
   Loader,
-} from "../../components";
+} from "../../Components";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
