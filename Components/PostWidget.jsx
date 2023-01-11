@@ -15,7 +15,6 @@ if(slug){
     .then((result)=> setRelatedPosts(result))}
     },[slug])
 
-    console.log(relatedPosts)
   return (
     <div className='bg-white shadw-lg rounded-lg p-8 mb-8'>
        <h3 className='text-xl mb-8 font-semibold border-b pb-4'>

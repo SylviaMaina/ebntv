@@ -17,17 +17,17 @@ import Pagination from "@mui/material/Pagination";
 export default function Home({ title, label, news, posts }) {
   return (
     <div>
-      <div className="container mx-auto px-10 mb-8 mt-2 h-50">
+      <div className="container mx-auto px-10 mb-8 ml-2 mt-2 h-50">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
             <iframe
-              width="800"
+              width="900"
               height="685"
-              src="https://www.youtube.com/embed/7m46p15YFBQ"
+              src="https://www.youtube.com/embed/ro2z8aTE90I"
               title="YouTube video player"
-              frameBorder="0"
+              frameborder="0"
               allow="accelerometer;autoplay ; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              allowFullscreen
               className={styles.iframe}
             ></iframe>
           </div>
