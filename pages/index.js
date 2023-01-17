@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import { PostCard, Categories, PostWidget } from "../Components";
 import { getPosts } from "../Services";
@@ -15,6 +16,14 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Pagination from "@mui/material/Pagination";
 
 export default function Home({ title, label, news, posts }) {
+  const itemsPerPage = 12;
+  const [page, setPage] = React.useState(1);
+  const [noOfPages] = React.useState(Math.ceil(posts.length / itemsPerPage));
+
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+  console.log(posts);
   return (
     <div>
       <div className="container mx-auto px-10 mb-8 ml-2 mt-2 h-50">
@@ -23,7 +32,7 @@ export default function Home({ title, label, news, posts }) {
             <iframe
               width="900"
               height="685"
-              src="https://www.youtube.com/embed/ro2z8aTE90I"
+              src="https://www.youtube.com/embed/PeXBAH1Rfak"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer;autoplay ; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -93,9 +102,22 @@ export default function Home({ title, label, news, posts }) {
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
-            {posts?.map((post, index) => (
-              <PostCard post={post.node} key={index} />
-            ))}
+            {posts
+              .slice((page - 1) * itemsPerPage, page * itemsPerPage)
+              .sort((a, b) => (a.post > b.post ? 1 : -1))
+              .map((post, index) => (
+                <PostCard post={post.node} key={index} />
+              ))}
+            <Pagination
+              count={noOfPages}
+              page={page}
+              onChange={handleChange}
+              defaultPage={1}
+              color="primary"
+              size="large"
+              showFirstButton
+              showLastButton
+            />
           </div>
 
           <div className="lg:col-span-4 col-span-1">
