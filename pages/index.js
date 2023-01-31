@@ -28,10 +28,8 @@ export default function Home({ title, label, news, posts }) {
     <div>
       <div className="container mx-auto px-10 mb-8 ml-2 mt-2 h-50">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8 col-span-1">
+          <div className="lg:col-span-8 col-span-2">
             <iframe
-              width="900"
-              height="685"
               src="https://www.youtube.com/embed/PeXBAH1Rfak"
               title="YouTube video player"
               frameborder="0"
@@ -46,7 +44,7 @@ export default function Home({ title, label, news, posts }) {
               <img src="ebn.png" alt="ebn tv logo" className="h-10" />
               <h3>Top Shows</h3>
 
-              <div className="show">
+              {/* <div className="show">
                 <img src="Manukato.jpg" alt="manukato show" className="h-20 " />
                 <div className="text-sm font-medium">
                   <h4>Manukato Show</h4>
@@ -57,7 +55,7 @@ export default function Home({ title, label, news, posts }) {
                   </h6>
                   <h6>Every Saturday: 05:00pm</h6>
                 </div>
-              </div>
+              </div> */}
               <div className="show">
                 <img
                   src="Requesthour.jpg"
@@ -207,7 +205,7 @@ export default function Home({ title, label, news, posts }) {
                   marginRight: "0.5rem",
                 }}
               />
-              +25468387608 | +254876469834
+              +254 740 653 453 | +254876469834
             </h6>
             <h6>
               <MailIcon
