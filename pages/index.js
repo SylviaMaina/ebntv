@@ -26,6 +26,7 @@ export default function Home({ title, label, news, posts }) {
     });
   }, []);
 
+  console.log(header)
   const settings = {
     dots: true,
     infinite: true,
@@ -40,12 +41,12 @@ export default function Home({ title, label, news, posts }) {
     <div>
       <div className=" h-1/2">
         <Slider {...settings} className="flex flex-row pb-12 mb-8 h-full">
-          {header.map((image, index) => (
+          {header?.map((image, index) => (
             <div className="" key={index.id}>
               <img
-                src={image.url}
-                className=" h-[40rem] w-full"
-                alt="Picture of the author"
+                src={image?.url}
+                alt="Picture of the author"                className="h-[40rem] w-full"
+
               />
             </div>
           ))}
