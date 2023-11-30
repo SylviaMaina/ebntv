@@ -12,7 +12,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Slider from "react-slick";
-import { HorizontalRule } from "@mui/icons-material";
+import { HorizontalRule, Settings } from "@mui/icons-material";
 import Image from "next/image";
 
 export default function Home({ title, label, news, posts }) {
@@ -26,7 +26,6 @@ export default function Home({ title, label, news, posts }) {
     });
   }, []);
 
-  console.log(header);
   const settings = {
     dots: true,
     infinite: true,
@@ -39,13 +38,15 @@ export default function Home({ title, label, news, posts }) {
 
   return (
     <div>
-      <div className=" h-1/2">
-        <Slider {...settings} className="flex flex-row pb-12 mb-8 h-full">
+      <div className=" h-1/2 mb-10">
+        <Slider {...settings} >
           {header.map((image, index) => {
             return (
-              <div className="">
+              <div className="" key={index.id}>
                 <img
                   src={image.url}
+                  width={1000}
+                  height={1000}
                   alt="Picture of the author"
                   className="w-full h-[40rem]"
                 />

@@ -60,6 +60,7 @@ export const getHeaderImage = async () => {
       headerImages {
         headerImage {
           url
+          id
         }
       }
     }
@@ -88,7 +89,6 @@ export const getVideos = async () => {
 
   return result.videoCategories;
 };
-
 
 export const getPostDetails = async (slug) => {
   const query = gql`
