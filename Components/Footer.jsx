@@ -32,32 +32,7 @@ const Footer = () => {
                 About Us
               </h6>
             </Link>
-            {/*
-          <Link href="/Careers">
-            <h6>
-              <ArrowForwardIosIcon
-                style={{
-                  color: "#DF8E03",
-                  fontSize: "1rem",
-                  marginRight: "0.5rem",
-                }}
-              />
-              Careers
-            </h6>
-          </Link>
-
-         <Link href="/Ads">
-            <h6>
-              <ArrowForwardIosIcon
-                style={{
-                  color: "#DF8E03",
-                  fontSize: "1rem",
-                  marginRight: "0.5rem",
-                }}
-              />
-              Advertise With Us
-            </h6>
-          </Link> */}
+           
             <Link href="/Schedule">
               <h6>
                 <ArrowForwardIosIcon

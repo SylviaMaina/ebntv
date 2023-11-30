@@ -26,7 +26,7 @@ export default function Home({ title, label, news, posts }) {
     });
   }, []);
 
-  console.log(header)
+  console.log(header);
   const settings = {
     dots: true,
     infinite: true,
@@ -41,15 +41,17 @@ export default function Home({ title, label, news, posts }) {
     <div>
       <div className=" h-1/2">
         <Slider {...settings} className="flex flex-row pb-12 mb-8 h-full">
-          {header?.map((image, index) => (
-            <div className="" key={index.id}>
-              <img
-                src={image?.url}
-                alt="Picture of the author"                className="h-[40rem] w-full"
-
-              />
-            </div>
-          ))}
+          {header.map((image, index) => {
+            return (
+              <div className="">
+                <img
+                  src={image.url}
+                  alt="Picture of the author"
+                  className="w-full h-[40rem]"
+                />
+              </div>
+            );
+          })}
         </Slider>
       </div>
       <div className="container mx-auto pl-24 mb-8 max-lg:px-4">
@@ -103,32 +105,6 @@ export default function Home({ title, label, news, posts }) {
                     About Us
                   </h6>
                 </Link>
-                {/*
-              <Link href="/Careers">
-                <h6>
-                  <ArrowForwardIosIcon
-                    style={{
-                      color: "#DF8E03",
-                      fontSize: "1rem",
-                      marginRight: "0.5rem",
-                    }}
-                  />
-                  Careers
-                </h6>
-              </Link>
-
-             <Link href="/Ads">
-                <h6>
-                  <ArrowForwardIosIcon
-                    style={{
-                      color: "#DF8E03",
-                      fontSize: "1rem",
-                      marginRight: "0.5rem",
-                    }}
-                  />
-                  Advertise With Us
-                </h6>
-              </Link> */}
                 <Link href="/Schedule">
                   <h6>
                     <ArrowForwardIosIcon
