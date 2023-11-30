@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Slider from "react-slick";
-import { ArrowForward, HorizontalRule } from "@mui/icons-material";
+import { HorizontalRule } from "@mui/icons-material";
 import Footer from "../Components/Footer";
 import { getVideos } from "../Services";
 import { Divider } from "@mui/material";
@@ -28,7 +28,7 @@ function Videos() {
 
   return (
     <>
-      <div className="relative border border-pink-700">
+      <div className="relative">
         <Slider {...settings} className="blur-[1px] mt-4">
           <div>
             <img src="/Kingdom.png" alt="kingdom show" />

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCategories } from "../Services";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Close } from "@mui/icons-material";
 import { Popover } from "@mui/material";
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -32,43 +31,48 @@ const Header = () => {
             <img src="ebn.png" alt="ebn tv logo" className="h-full" />
           </Link>
         </div>
-        <div className="uppercase mt-4 w-11/12 flex justify-evenly items-center gap-4 max-lg:grid-cols-6 max-lg:hidden ">
-          {categories.map((category) => (
-            <>
-              <Link key={category.slug} href={`/category/${category.slug}`}>
-                <span className="max-lg:w-fit text-sm">{category.name}</span>
-              </Link>
-            </>
-          ))}
+        <div className="uppercase mt-4 w-full flex justify-between items-center ">
+          <div className=" w-3/4 flex justify-evenly max-lg:hidden">
+            {categories.map((category) => (
+              <>
+                <Link key={category.slug} href={`/category/${category.slug}`}>
+                  <span className="max-lg:w-fit text-sm">{category.name}</span>
+                </Link>
+              </>
+            ))}
+          </div>
 
-          <Link
-            href="/Live"
-            to="/Live"
-            className="border-2 border-red-800 animate-pulse py-2 rounded-md text-red-800 w-32 flex justify-center items-center text-sm"
-          >
-            <h6>Live</h6>
-          </Link>
-          <Link
-            href="/Videos"
-            to="/videos"
-            className="border-2 border-blue-900  py-2 text-blue-900 w-32 rounded-md flex justify-center items-center text-sm"
-          >
-            <h6>Videos</h6>
-          </Link>
-          <Link
-            href="https://www.youtube.com/playlist?list=PLBiWW8XNhqaJE8ncpA1JO-QFmVEWzo4Cn"
-            className="border-2 border-blue-900 py-2 text-blue-900 w-32 rounded-md text-center ml-2"
-          >
-            <h6 className="text-sm">Podcast</h6>
-          </Link>
-          <Link
-            href="/Partner"
-            to="/Partner"
-            className="border-2 border-blue-900 py-2 text-blue-900 w-44 rounded-md text-center ml-2"
-          >
-            <h6 className="text-sm">Become A Partner</h6>
-          </Link>
-          <div className="border mx-5 hidden max-lg:grid">
+          <div className="max-lg:grid flex grid-cols-2 justify-evenly items-center gap-4 w-1/3 `  max-lg:w-full  ">
+            <Link
+              href="/Live"
+              to="/Live"
+              className="border-2 border-red-800 animate-pulse max-lg:w-full py-2 h-fit w-24 px-2 rounded-md text-red-800 flex justify-center items-center text-sm"
+            >
+              <h6>Live</h6>
+            </Link>
+            <Link
+              href="/Videos"
+              to="/videos"
+              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+            >
+              <h6>Videos</h6>
+            </Link>
+            <Link
+              href="https://www.youtube.com/playlist?list=PLBiWW8XNhqaJE8ncpA1JO-QFmVEWzo4Cn"
+              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+            >
+              <h6 className="text-sm">Podcast</h6>
+            </Link>
+            <Link
+              href="/Partner"
+              to="/Partner"
+              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+            >
+              <h6 className="text-sm">Become a Partner</h6>
+            </Link>
+          </div>
+
+          <div className=" max-lg:w-fit hidden max-lg:flex ml-4 border border-sky-400">
             <MenuIcon onClick={handleClick} className="text-4xl" />
           </div>
           <Popover
