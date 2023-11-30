@@ -39,7 +39,7 @@
 }
 
 .title .a {
-  color: #0070f3;
+  color: #033e81;
   text-decoration: none;
 }
 
@@ -259,7 +259,7 @@
 }
 .footer{
   width: 95%;
-  height: fit-content;
+  height: 40rem;
   margin: 0 auto;
   background-color:#171846;
 }

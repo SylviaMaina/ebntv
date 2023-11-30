@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
-      postsConnection(last: 9) {
+      postsConnection(last: 6) {
         edges {
           cursor
           node {
@@ -53,6 +53,42 @@ export const getCategories = async () => {
 
   return result.categories;
 };
+
+export const getHeaderImage = async () => {
+  const query = gql`
+    query getHeaderImage {
+      headerImages {
+        headerImage {
+          url
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.headerImages;
+};
+
+export const getVideos = async () => {
+  const query = gql`
+    query getVideos {
+      videoCategories {
+        videoCategory
+        video {
+          id
+          videoUrl
+        }
+        playlistUrl
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.videoCategories;
+};
+
 
 export const getPostDetails = async (slug) => {
   const query = gql`

@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { PostCard, Categories, PostWidget } from "../Components";
-import { getPosts } from "../Services";
+import { getHeaderImage, getPosts } from "../Services";
 import Link from "next/link";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import PhoneForwardedIcon from "@mui/icons-material/PhoneForwarded";
@@ -11,13 +11,20 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Slider from "react-slick";
 import { HorizontalRule } from "@mui/icons-material";
+import Image from "next/image";
 
 export default function Home({ title, label, news, posts }) {
-  const itemsPerPage = 9;
+  const itemsPerPage = 6;
   const [page, setPage] = React.useState(1);
+  const [header, setHeader] = React.useState([]);
+
+  React.useEffect(() => {
+    getHeaderImage().then((newHeader) => {
+      setHeader(newHeader[0].headerImage);
+    });
+  }, []);
 
   const settings = {
     dots: true,
@@ -26,34 +33,22 @@ export default function Home({ title, label, news, posts }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows:false,
+    arrows: false,
   };
 
   return (
     <div>
-      <div className=" mt-2 h-1/2">
+      <div className=" h-1/2">
         <Slider {...settings} className="flex flex-row pb-12 mb-8 h-full">
-          <div className="">
-            <img
-              src="Manukato.jpg"
-              alt="manukato show"
-              className=" h-[38rem] w-full"
-            />
-          </div>
-          <div className="">
-            <img
-              src="Requesthour.jpg"
-              alt="manukato show"
-              className=" h-[38rem] w-full"
-            />
-          </div>
-          <div className="">
-            <img
-              src="Majira.jpg"
-              alt="manukato show"
-              className=" h-[38rem] w-full"
-            />
-          </div>
+          {header.map((image, index) => (
+            <div className="" key={index.id}>
+              <img
+                src={image.url}
+                className=" h-[40rem] w-full"
+                alt="Picture of the author"
+              />
+            </div>
+          ))}
         </Slider>
       </div>
       <div className="container mx-auto pl-24 mb-8 max-lg:px-4">
@@ -87,27 +82,27 @@ export default function Home({ title, label, news, posts }) {
           </div>
         </div>
       </div>
-      <div className="text-white mt-2 h-72 bg-blue-900 shadow-lg flex flex-col justify-evenly max-lg:flex-col max-lg:h-fit">
-        <div className="flex max-lg:flex-col max-lg:px-4 ">
-          <div className="flex flex-row justify-between w-3/4 px-24 pt-4  max-lg:flex-col max-lg:w-full max-lg:px-0">
-            <div className="w-1/2 leading-6 text-xl max-lg:w-full">
+      <div className="text-white mt-2 h-96 bg-blue-900 shadow-lg flex flex-col justify-between max-lg:flex-col max-lg:h-fit">
+        <div className="flex mt-4 justify-between max-lg:flex-col max-lg:px-4 ">
+          <div className="flex flex-row justify-evenly w-11/12 mx-auto px-24 pt-4  max-lg:flex-col max-lg:w-full max-lg:px-0">
+            <div className="text-xl justify-between max-lg:w-full max-lg:leading-8 max-lg:mt-2">
               <h2 className="text-2xl border-b-white border-b-2 w-3/4">
                 About
               </h2>
-
-              <Link href="/About">
-                <h6>
-                  <ArrowForwardIosIcon
-                    style={{
-                      color: "#DF8E03",
-                      fontSize: "1rem",
-                      marginRight: "0.5rem",
-                    }}
-                  />
-                  About Us
-                </h6>
-              </Link>
-
+              <div className="flex flex-col justify-between h-full">
+                <Link href="/About">
+                  <h6>
+                    <ArrowForwardIosIcon
+                      style={{
+                        color: "#DF8E03",
+                        fontSize: "1rem",
+                        marginRight: "0.5rem",
+                      }}
+                    />
+                    About Us
+                  </h6>
+                </Link>
+                {/*
               <Link href="/Careers">
                 <h6>
                   <ArrowForwardIosIcon
@@ -121,7 +116,7 @@ export default function Home({ title, label, news, posts }) {
                 </h6>
               </Link>
 
-              {/* <Link href="/Ads">
+             <Link href="/Ads">
                 <h6>
                   <ArrowForwardIosIcon
                     style={{
@@ -133,95 +128,107 @@ export default function Home({ title, label, news, posts }) {
                   Advertise With Us
                 </h6>
               </Link> */}
-              <Link href="/Schedule">
-                <h6>
-                  <ArrowForwardIosIcon
-                    style={{
-                      color: "#DF8E03",
-                      fontSize: "1rem",
-                      marginRight: "0.5rem",
-                    }}
-                  />
-                  Tv Programming
-                </h6>
-              </Link>
+                <Link href="/Schedule">
+                  <h6>
+                    <ArrowForwardIosIcon
+                      style={{
+                        color: "#DF8E03",
+                        fontSize: "1rem",
+                        marginRight: "0.5rem",
+                      }}
+                    />
+                    Tv Programming
+                  </h6>
+                </Link>
 
-              <Link href="/Contact">
-                <h6>
-                  <ArrowForwardIosIcon
-                    style={{
-                      color: "#DF8E03",
-                      fontSize: "1rem",
-                      marginRight: "0.5rem",
-                    }}
-                  />
-                  Contact Us
-                </h6>
-              </Link>
+                <Link href="/Contact">
+                  <h6>
+                    <ArrowForwardIosIcon
+                      style={{
+                        color: "#DF8E03",
+                        fontSize: "1rem",
+                        marginRight: "0.5rem",
+                      }}
+                    />
+                    Contact Us
+                  </h6>
+                </Link>
+              </div>
             </div>
-            <div className="text-xl w-1/2 max-lg:w-full max-lg:leading-8 max-lg:mt-2 ">
-              <h2 className="text-2xl   border-b-white border-b-2 w-3/4">
+            <div className="text-xl justify-between max-lg:w-full max-lg:leading-8 max-lg:mt-2 ">
+              <h2 className="text-2xl   border-b-white border-b-2">
                 Contact Info
               </h2>
-              <h6>
-                <PhoneForwardedIcon
-                  style={{
-                    color: "#DF8E03",
-                    fontSize: "1rem",
-                    marginRight: "0.5rem",
-                  }}
-                />
-                +254 740 653 453 | +254876469834
-              </h6>
-              <h6>
-                <MailIcon
-                  style={{
-                    color: "#DF8E03",
-                    fontSize: "1rem",
-                    marginRight: "0.5rem",
-                  }}
-                />
-                info@ebntv.ac.ke
-              </h6>
-              <h6>
-                <LocationOnIcon
-                  style={{
-                    color: "#DF8E03",
-                    fontSize: "1rem",
-                    marginRight: "0.5rem",
-                  }}
-                />
-                Along Rabai rd, next to buruburu girls high school.
-              </h6>
+              <div className="flex flex-col justify-between h-full">
+                <h6>
+                  <PhoneForwardedIcon
+                    style={{
+                      color: "#DF8E03",
+                      fontSize: "1rem",
+                      marginRight: "0.5rem",
+                    }}
+                  />
+                  +254 740 653 453 | +254876469834
+                </h6>
+                <h6>
+                  <MailIcon
+                    style={{
+                      color: "#DF8E03",
+                      fontSize: "1rem",
+                      marginRight: "0.5rem",
+                    }}
+                  />
+                  info@ebntv.ac.ke
+                </h6>
+                <h6>
+                  <LocationOnIcon
+                    style={{
+                      color: "#DF8E03",
+                      fontSize: "1rem",
+                      marginRight: "0.5rem",
+                    }}
+                  />
+                  Along Rabai rd, next to buruburu girls high school.
+                </h6>
+              </div>
+            </div>
+            <div className="text-xl justify-between max-lg:w-full max-lg:leading-8 max-lg:mt-2">
+              <h4 className="text-2xl border-b-white border-b-2 ">Socials</h4>
+              <div className="flex flex-col justify-between h-full">
+                <Link
+                  href="facebook.com/EBN-TV-100982208492178
+"
+                >
+                  <h6>
+                    <FacebookRoundedIcon />
+                    Facebook
+                  </h6>
+                </Link>
+                <Link href="twitter.com/TvEbn">
+                  <h6>
+                    <TwitterIcon />X
+                  </h6>
+                </Link>
+
+                <Link href="https://www.youtube.com/@EcclesiaBroadcastingNetwork">
+                  <h6 className="cursor-pointer text-pink ">
+                    <YouTubeIcon />
+                    YouTube
+                  </h6>
+                </Link>
+                <Link href="instagram.com/tv_ebn">
+                  <h6>
+                    <InstagramIcon />
+                    Instagram
+                  </h6>
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col justify-between w-1/2 px-24 pt-4 max-lg:w-full max-lg:px-0">
-            <h4 className="text-2xl border-b-white border-b-2 w-3/4 ">
-              Socials
-            </h4>
-            <h6>
-              <FacebookRoundedIcon />
-              Facebook
-            </h6>
-            <h6>
-              <TwitterIcon />
-              Twitter
-            </h6>
-            <h6>
-              <YouTubeIcon />
-              YouTube
-            </h6>
-            <h6>
-              <InstagramIcon />
-              Instagram
-            </h6>
-            <h6>
-              <LinkedInIcon />
-              LinkedIn
-            </h6>
-          </div>
-        </div>{" "}
-        <h6 className="pl-24">Copyright © 2022 Ebn Tv. All Rights Reserved</h6>
+        </div>
+        <h6 className="pl-24 mb-2">
+          Copyright © 2022 Ebn Tv. All Rights Reserved
+        </h6>
       </div>
     </div>
   );
