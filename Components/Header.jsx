@@ -24,7 +24,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-sky-500 to-sky-100">
+    <div className="bg-gradient-to-r from-sky-300 to-sky-700">
       <div className="p-4 mx-auto flex flex-col w-full items-center justify-between max-lg:w-full max-lg:ml-0  max-lg:p-2 max-lg:relative  max-lg:flex-col">
         <div className="w-32 h-24 max-lg:w-fit">
           <Link href="/">
@@ -33,10 +33,15 @@ const Header = () => {
         </div>
         <div className="uppercase mt-4 w-full flex justify-between items-center ">
           <div className=" w-3/4 flex justify-evenly max-lg:hidden">
+            <Link href="/">
+              <span className="text-white max-lg:w-fit text-sm">HOME</span>
+            </Link>
             {categories.map((category) => (
               <>
                 <Link key={category.slug} href={`/category/${category.slug}`}>
-                  <span className="max-lg:w-fit text-sm">{category.name}</span>
+                  <span className="text-white max-lg:w-fit text-sm">
+                    {category.name}
+                  </span>
                 </Link>
               </>
             ))}
@@ -46,33 +51,33 @@ const Header = () => {
             <Link
               href="/Live"
               to="/Live"
-              className="border-2 border-red-800 animate-pulse max-lg:w-full py-2 h-fit w-24 px-2 rounded-md text-red-800 flex justify-center items-center text-sm"
+              className=" bg-red-700  max-lg:w-full py-2 h-fit w-24 px-2 rounded-md text-white flex justify-center items-center text-sm"
             >
-              <h6>Live</h6>
+              <h6 className="animate-pulse">Live</h6>
             </Link>
             <Link
               href="/Videos"
               to="/videos"
-              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+              className="bg-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
             >
               <h6>Videos</h6>
             </Link>
             <Link
               href="https://www.youtube.com/playlist?list=PLBiWW8XNhqaJE8ncpA1JO-QFmVEWzo4Cn"
-              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+              className="bg-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
             >
               <h6 className="text-sm">Podcast</h6>
             </Link>
             <Link
               href="/Partner"
               to="/Partner"
-              className="border-2 border-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-blue-500 flex justify-center items-center text-sm "
+              className="bg-blue-500 w-full  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
             >
               <h6 className="text-sm">Become a Partner</h6>
             </Link>
           </div>
 
-          <div className=" max-lg:w-fit hidden max-lg:flex ml-4 border border-sky-400">
+          <div className=" max-lg:w-fit hidden max-lg:flex ml-4 border rounded border-sky-400">
             <MenuIcon onClick={handleClick} className="text-4xl" />
           </div>
           <Popover

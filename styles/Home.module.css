@@ -71,8 +71,7 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+
 }
 
 .grid {
@@ -412,7 +411,6 @@
   justify-content: space-between;
 }
 .card h2{
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -424,7 +422,6 @@
   color: #000000;
 }
 .card h4{
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -458,7 +455,6 @@
   width: 60%;
 }
 .careers h6{
-  font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -474,7 +470,6 @@
   margin: 0 auto;
 }
 .about h6{ 
-  font-family: 'Merriweather';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -486,7 +481,6 @@
   color: #000000;
 }
 .about h2{
-  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
