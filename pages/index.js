@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { PostCard, Categories, PostWidget } from "../Components";
 import { getHeaderImage, getPosts } from "../Services";
@@ -12,19 +12,19 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Slider from "react-slick";
-import { HorizontalRule, Settings } from "@mui/icons-material";
-import Image from "next/image";
+import { HorizontalRule } from "@mui/icons-material";
+import { Divider, Pagination, Stack } from "@mui/material";
 
 export default function Home({ title, label, news, posts }) {
-  const itemsPerPage = 6;
-  const [page, setPage] = React.useState(1);
-  const [header, setHeader] = React.useState([]);
+  
+  const [header, setHeader] = useState([]);
 
   React.useEffect(() => {
     getHeaderImage().then((newHeader) => {
       setHeader(newHeader[0].headerImage);
     });
   }, []);
+
 
   const settings = {
     dots: true,
@@ -39,12 +39,12 @@ export default function Home({ title, label, news, posts }) {
   return (
     <div>
       <div className=" h-1/2 mb-10">
-        <Slider {...settings} >
+        <Slider {...settings}>
           {header.map((image, index) => {
             return (
               <div className="" key={index.id}>
                 <img
-                  src={image.url}
+                  src={image?.url}
                   width={1000}
                   height={1000}
                   alt="Picture of the author"
@@ -73,11 +73,11 @@ export default function Home({ title, label, news, posts }) {
           </h2>
           <div className="grid grid-cols-3 gap-4 max-lg:flex flex-col max-lg:ml-0">
             {posts
-              .slice((page - 1) * itemsPerPage, page * itemsPerPage)
-              .sort((a, b) => (a.post > b.post ? 1 : -1))
+             
               .map((post, index) => (
                 <PostCard post={post.node} key={index} />
               ))}
+          
           </div>
 
           <div className="grid grid-cols-2 max-lg:grid-cols-1 max-lg:px-4">
@@ -173,9 +173,7 @@ export default function Home({ title, label, news, posts }) {
             <div className="text-xl justify-between max-lg:w-full max-lg:leading-8 max-lg:mt-2">
               <h4 className="text-2xl border-b-white border-b-2 ">Socials</h4>
               <div className="flex flex-col justify-between h-full">
-                <Link
-                  href="https://www.facebook.com/TvEBN/"
-                >
+                <Link href="https://www.facebook.com/TvEBN/">
                   <h6>
                     <FacebookRoundedIcon />
                     Facebook
