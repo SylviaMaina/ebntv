@@ -146,7 +146,7 @@ export default function Home({ title, label, news, posts }) {
                       marginRight: "0.5rem",
                     }}
                   />
-                  +254 740 653 453 | +254876469834
+                  +254 740 653 453 | +254 876 469 834
                 </h6>
                 <h6>
                   <MailIcon
@@ -174,15 +174,14 @@ export default function Home({ title, label, news, posts }) {
               <h4 className="text-2xl border-b-white border-b-2 ">Socials</h4>
               <div className="flex flex-col justify-between h-full">
                 <Link
-                  href="facebook.com/EBN-TV-100982208492178
-"
+                  href="https://www.facebook.com/TvEBN/"
                 >
                   <h6>
                     <FacebookRoundedIcon />
                     Facebook
                   </h6>
                 </Link>
-                <Link href="twitter.com/TvEbn">
+                <Link href="https://www.twitter.com/TvEbn">
                   <h6>
                     <TwitterIcon />X
                   </h6>

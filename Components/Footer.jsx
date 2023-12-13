@@ -98,8 +98,7 @@ const Footer = () => {
             <h4 className="text-2xl border-b-white border-b-2 ">Socials</h4>
             <div className="flex flex-col justify-between h-full">
               <Link
-                href="https://facebook.com/EBN-TV-100982208492178
-"
+                href="https://www.facebook.com/TvEBN/"
               >
                 <h6>
                   <FacebookRoundedIcon />

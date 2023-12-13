@@ -24,7 +24,7 @@ const PostCard = ({ post }) => {
           <div className="font-medium, text-gray-700 ">
             <p>Posted on :{moment(post.createdAt).format("MMM DD, YYYY")}</p>
             <p className="inline align-center text-gray-700 text-md">
-              By: {post.author.name}
+              By: {post.author?.name}
             </p>
           </div>
         </div>
