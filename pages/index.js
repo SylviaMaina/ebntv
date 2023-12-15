@@ -88,6 +88,7 @@ export default function Home({ title, label, news, posts }) {
             count={Math.ceil(posts.length / itemsPerPage)}
             page={currentPage}
             onChange={handlePageChange}
+            className="my-4"
           />
 
           <div className="grid grid-cols-2 max-lg:grid-cols-1 max-lg:px-4">
