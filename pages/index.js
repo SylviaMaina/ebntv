@@ -16,8 +16,9 @@ import { HorizontalRule } from "@mui/icons-material";
 import { Divider, Pagination, Stack } from "@mui/material";
 
 export default function Home({ title, label, news, posts }) {
-  
   const [header, setHeader] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   React.useEffect(() => {
     getHeaderImage().then((newHeader) => {
@@ -25,6 +26,13 @@ export default function Home({ title, label, news, posts }) {
     });
   }, []);
 
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const postsToDisplay = posts.slice(startIndex, endIndex);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   const settings = {
     dots: true,
@@ -72,13 +80,15 @@ export default function Home({ title, label, news, posts }) {
             <HorizontalRule />
           </h2>
           <div className="grid grid-cols-3 gap-4 max-lg:flex flex-col max-lg:ml-0">
-            {posts
-             
-              .map((post, index) => (
-                <PostCard post={post.node} key={index} />
-              ))}
-          
+            {postsToDisplay.map((post, index) => (
+              <PostCard post={post.node} key={index} />
+            ))}
           </div>
+          <Pagination
+            count={Math.ceil(posts.length / itemsPerPage)}
+            page={currentPage}
+            onChange={handlePageChange}
+          />
 
           <div className="grid grid-cols-2 max-lg:grid-cols-1 max-lg:px-4">
             <PostWidget />
