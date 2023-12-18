@@ -51,7 +51,7 @@ const Header = () => {
             <Link
               href="/Live"
               to="/Live"
-              className=" bg-red-700  max-lg:w-full py-2 h-fit w-24 px-2 rounded-md text-white flex justify-center items-center text-sm"
+              className=" bg-red-700  max-lg:w-full py-2 h-fit w-32 px-2 rounded-md text-white flex justify-center items-center text-sm"
             >
               <h6 className="animate-pulse">Live</h6>
             </Link>
@@ -63,6 +63,13 @@ const Header = () => {
               <h6>Videos</h6>
             </Link>
             <Link
+              href="/Schedule"
+              to="/Schedule"
+              className="bg-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
+            >
+              <h6>Programs</h6>
+            </Link>
+            <Link
               href="https://www.youtube.com/playlist?list=PLBiWW8XNhqaJE8ncpA1JO-QFmVEWzo4Cn"
               className="bg-blue-500  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
             >
@@ -71,9 +78,9 @@ const Header = () => {
             <Link
               href="/Partner"
               to="/Partner"
-              className="bg-blue-500 w-full  py-2 max-lg:h-fit px-2 rounded-md text-white flex justify-center items-center text-sm "
+              className="bg-blue-500 w-full  py-2 max-lg:h-fit px-2 rounded-md text-white flex items-center justify-center text-sm "
             >
-              <h6 className="text-sm">Become a Partner</h6>
+              <h6 className="text-sm w-fit">Partners</h6>
             </Link>
           </div>
 
