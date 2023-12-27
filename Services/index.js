@@ -2,42 +2,39 @@ import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPosts = async () => {
+export const getPosts = async()=>{
   const query = gql`
-    query MyQuery {
-      postsConnection(first: 16,orderBy: publishedAt_DESC) {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
+  query MyQuery {
+    postsConnection( orderBy: publishedAt_ASC,last: 15) {
+      edges {
+        node {
+          author {
+            bio
+            name
+            id
+            photo {
               url
             }
-            categories {
-              name
-              slug
-            }
+          }
+          createdAt
+          slug
+          title
+          excerpt
+          featuredImage {
+            url
+          }
+          categories {
+            name
+            slug
           }
         }
       }
     }
-  `;
-
-  const result = await request(graphqlAPI, query);
-
-  return result.postsConnection.edges;
-};
+  }
+  `
+  const results = await request(graphqlAPI,query)
+  return results.postsConnection.edges
+}
 
 export const getCategories = async () => {
   const query = gql`

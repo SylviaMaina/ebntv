@@ -1,18 +1,24 @@
 import React from "react";
 import Footer from "../Components/Footer";
 function Schedules() {
+  const scrollToDay = (day) => {
+    const element = document.getElementById(day);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div>
       <div className="flex w-11/12 mx-auto justify-between">
-        <h6 className=" hover:text-blue-400 cursor-pointer">Monday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Tuesday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Wednesday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Thursday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Friday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Saturday</h6>
-        <h6 className=" hover:text-blue-400 cursor-pointer">Sunday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer"  onClick={() => scrollToDay('monday')}>Monday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('tuesday')}>Tuesday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('wednesday')}>Wednesday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('thursday')}>Thursday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('friday')}>Friday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('saturday')}>Saturday</h6>
+        <h6 className=" hover:text-blue-400 cursor-pointer" onClick={() => scrollToDay('sunday')}>Sunday</h6>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:flex-col-reverse  max-lg:w-11/12">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:flex-col-reverse  max-lg:w-11/12" id="monday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Monday Programs</h6>
@@ -110,7 +116,7 @@ function Schedules() {
           <img src="GATUZI LANGU.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse " id="tuesday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Tuesday Programs</h6>
@@ -200,7 +206,7 @@ function Schedules() {
           <img src="YOUR FAITH TODAY.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse " id="wednesday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Wednesday Programs</h6>
@@ -303,7 +309,7 @@ function Schedules() {
           <img src="MAJIRA.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse" id="thursday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Thursday Programs</h6>
@@ -393,7 +399,7 @@ function Schedules() {
           <img src="YOUR FAITH TODAY.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse" id="friday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Friday Programs</h6>
@@ -496,7 +502,7 @@ function Schedules() {
           <img src="MAJIRA.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse" id="saturday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Saturday Programs</h6>
@@ -572,7 +578,7 @@ function Schedules() {
           <img src="MANUKATO.jpg" alt="gatuzi" />
         </div>
       </div>
-      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse ">
+      <div className="flex border-2 w-1/2 mx-auto mt-5 max-lg:w-11/12 max-lg:flex-col-reverse" id="sunday">
         <div className="w-1/2 mx-10 max-lg:w-11/12">
           <div className="w-full">
             <h6 className="text-2xl font-semibold underline uppercase w-full">Sunday Programs</h6>

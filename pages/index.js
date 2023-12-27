@@ -16,6 +16,8 @@ import { HorizontalRule } from "@mui/icons-material";
 import { Divider, Pagination, Stack } from "@mui/material";
 
 export default function Home({ title, label, news, posts }) {
+  
+const reversedPosts = [...posts].reverse(); 
   const [header, setHeader] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -28,7 +30,8 @@ export default function Home({ title, label, news, posts }) {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const postsToDisplay = posts.slice(startIndex, endIndex);
+  const postsToDisplay = reversedPosts.slice(startIndex, endIndex).reverse();
+
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
