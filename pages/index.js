@@ -30,7 +30,7 @@ const reversedPosts = [...posts].reverse();
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const postsToDisplay = reversedPosts.slice(startIndex, endIndex).reverse();
+  const postsToDisplay = reversedPosts.slice(startIndex, endIndex);
 
 
   const handlePageChange = (event, value) => {
