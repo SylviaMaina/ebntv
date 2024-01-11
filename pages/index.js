@@ -13,7 +13,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Slider from "react-slick";
 import { HorizontalRule } from "@mui/icons-material";
-import { Divider, Pagination, Stack } from "@mui/material";
+import {  Pagination} from "@mui/material";
 
 export default function Home({ title, label, news, posts }) {
   
