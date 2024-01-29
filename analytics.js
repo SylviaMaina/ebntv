@@ -2,7 +2,7 @@
 import ReactGA from 'react-ga';
 
 const initGA = () => {
-  ReactGA.initialize('G-Q2FZ4VC3VG'); // Replace with your actual Measurement ID
+  ReactGA.initialize('GTM-PL3JXMXZ'); // Replace with your actual Measurement ID
 };
 
 const logPageView = () => {
