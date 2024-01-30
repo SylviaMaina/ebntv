@@ -20,6 +20,7 @@ const PostDetails = ({ post }) => {
     return <Loader />;
   }
 
+
   return (
     <div>
       <div className="container mx-auto px-10 mb-8 mt-2">
@@ -27,8 +28,8 @@ const PostDetails = ({ post }) => {
           <div className="col-span-1 lg:col-span-8">
             <SEO
               title={post.title}
-              description={post.description}
-              image={post.image}
+              description={post.excerpt}
+              image={post.featuredImage.url}
             />
             <PostDetail post={post} />
             <Author author={post.author} />
