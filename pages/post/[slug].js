@@ -11,6 +11,7 @@ import {
 } from "../../Components";
 import { useRouter } from "next/router";
 import Footer from "../../Components/Footer";
+import SEO from "../../Components/SEO";
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -24,6 +25,11 @@ const PostDetails = ({ post }) => {
       <div className="container mx-auto px-10 mb-8 mt-2">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
+            <SEO
+              title={post.title}
+              description={post.description}
+              image={post.image}
+            />
             <PostDetail post={post} />
             <Author author={post.author} />
             <CommentsForm slug={post.slug} />
@@ -40,7 +46,7 @@ const PostDetails = ({ post }) => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
