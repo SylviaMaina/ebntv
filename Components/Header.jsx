@@ -82,6 +82,13 @@ const Header = () => {
             >
               <h6 className="text-sm w-fit">Partners</h6>
             </Link>
+            <Link
+              href="/Radio"
+              to="/radio"
+              className="bg-red-700 w-full pulse py-2 max-lg:h-fit px-2 rounded-md text-white flex items-center justify-center text-sm "
+            >
+              <h6 className="text-sm w-fit animate-pulse">Listen to Radio Mshindi</h6>
+            </Link>
           </div>
 
           <div className=" max-lg:w-fit hidden max-lg:flex ml-4 border rounded border-sky-400">
