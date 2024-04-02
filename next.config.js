@@ -12,4 +12,8 @@ module.exports = {
   api: {
     bodyParser: false, // Enable raw body parsing
   },
+  experimental: {
+    workerThreads: false,
+    cpus: 1
+  },
 };
