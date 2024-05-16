@@ -59,7 +59,7 @@ const reversedPosts = [...posts].reverse();
                   width={1000}
                   height={1000}
                   alt="Picture of the author"
-                  className="w-full h-[40rem]"
+                  className="w-full h-[40rem] max-lg:h-80"
                 />
               </div>
             );
