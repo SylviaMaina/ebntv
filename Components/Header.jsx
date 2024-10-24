@@ -22,6 +22,15 @@ const Header = () => {
       setCategories(newCategories);
     });
   }, []);
+  const [showAll, setShowAll] = useState(false);
+
+  // Number of categories to display before adding ellipsis
+  const maxCategoriesToShow = 3;
+
+  // Handle toggle of full category list
+  const handleShowAllToggle = () => {
+    setShowAll((prev) => !prev);
+  };
 
   return (
     <div className="bg-gradient-to-r from-sky-300 to-sky-700">
@@ -32,28 +41,48 @@ const Header = () => {
           </Link>
         </div>
         <div className="uppercase mt-4 w-full flex justify-between items-center ">
-          <div className=" w-3/4 flex justify-evenly max-lg:hidden">
+          <div className=" w-1/2 flex justify-between max-lg:hidden">
             <Link href="/">
               <span className="text-white max-lg:w-fit text-sm">HOME</span>
             </Link>
-            {categories.map((category) => (
-              <>
+            {categories
+              .slice(0, showAll ? categories.length : maxCategoriesToShow)
+              .map((category) => (
                 <Link key={category.slug} href={`/category/${category.slug}`}>
                   <span className="text-white max-lg:w-fit text-sm">
                     {category.name}
                   </span>
                 </Link>
-              </>
-            ))}
+              ))}
+
+            {/* Show ellipsis if there are more than the maxCategoriesToShow */}
+            {!showAll && categories.length > maxCategoriesToShow && (
+              <span
+                onClick={handleShowAllToggle}
+                className="text-white cursor-pointer text-sm"
+              >
+                ...
+              </span>
+            )}
+
+            {/* Show "Show less" if all categories are displayed */}
+            {showAll && (
+              <span
+                onClick={handleShowAllToggle}
+                className="text-white cursor-pointer text-sm"
+              >
+                Show less
+              </span>
+            )}
           </div>
 
-          <div className="max-lg:grid flex grid-cols-2 justify-evenly items-center gap-4 w-1/3 `  max-lg:w-full  ">
+          <div className="max-lg:grid flex grid-cols-2 justify-evenly items-center gap-4  `  max-lg:w-full  ">
             <Link
               href="/Live"
               to="/Live"
-              className=" bg-red-700  max-lg:w-full py-2 h-fit w-32 px-2 rounded-md text-white flex justify-center items-center text-sm"
+              className=" bg-red-700  max-lg:w-full  py-2 h-fit  px-2 rounded-md text-white flex justify-center items-center text-sm"
             >
-              <h6 className="animate-pulse">Live</h6>
+              <h6 className="animate-pulse w-28 text-center">Watch Live</h6>
             </Link>
             <Link
               href="/Videos"
@@ -87,7 +116,9 @@ const Header = () => {
               to="/radio"
               className="bg-red-700 w-full pulse py-2 max-lg:h-fit px-2 rounded-md text-white flex items-center justify-center text-sm "
             >
-              <h6 className="text-sm w-fit animate-pulse">Listen to Radio Mshindi</h6>
+              <h6 className="text-sm w-fit animate-pulse text-center">
+                Listen to Radio Mshindi
+              </h6>
             </Link>
           </div>
 
