@@ -11,7 +11,7 @@ const Radio = () => {
         <iframe
           className="w-2/3 h-[30rem] mt-5 mx-auto"
           style={{ maxWidth: "100%", maxHeight: "100%", border: "none" }}
-          src="https://mshindifm.radio12345.com/ "
+          src="https://dir.rcast.net/"
           frameborder="0"
           allowfullscreen="allowfullscreen"
           allow="autoplay"
